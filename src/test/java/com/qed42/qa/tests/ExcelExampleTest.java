@@ -15,7 +15,7 @@ import com.qed42.qa.pageobjects.LoginExamplePage;
 import com.qed42.qa.reportmanager.Report;
 import com.qed42.qa.utilities.ExcelManager;
 
-@Listeners(com.qed42.qa.utilities.TestListener.class)
+@Listeners({com.qed42.qa.utilities.TestListener.class})
 
 public class ExcelExampleTest extends BaseTest {
 	ArrayList<String> loginCreds = new ArrayList<String>();

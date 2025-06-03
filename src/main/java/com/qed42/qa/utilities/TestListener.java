@@ -21,7 +21,7 @@ import org.openqa.selenium.TakesScreenshot;
  * This class is used to generate logs or customize the TestNG reports.
  *
  */
-public class TestListener implements ITestListener {
+public class TestListener implements ITestListener  {
 
 	static Logger log = LogManager.getLogger(Report.class);
 

@@ -1,5 +1,7 @@
 package com.qed42.qa.tests;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,17 +14,15 @@ import com.qed42.qa.driver.DriverManager;
 @Listeners(com.qed42.qa.utilities.TestListener.class)
 
 public class BaseTest {
+	
+	protected WebDriver driver;
 
-	/**
-	 * This method initializes the driver and launches browser. It maximizes the browser window.
-	 * It is called before each test.
-	 * 
-	 * @param browser
-	 */
-	@Parameters({ "browser" })
 	@BeforeMethod
-	public void init(@Optional("chrome") String browser)  {
-		DriverManager.initialize(browser);
+	public void setUp() {
+        
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://tutorialsninja.com/demo/");
 	}
 	
 	/**
@@ -42,5 +42,4 @@ public class BaseTest {
 	public void tearDown() {
 		DriverManager.terminate();
 	}
-
 }
