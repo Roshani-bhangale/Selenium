@@ -10,7 +10,6 @@ import org.testng.Assert;
 import com.qed42.qa.pageobjects.HomePage;
 import com.qed42.qa.pageobjects.MenuComponent;
 
-
 public class HomeMenuTests extends BaseTest {
 	
 	@Test(priority = 1)
@@ -41,5 +40,16 @@ public class HomeMenuTests extends BaseTest {
 					"Menu item missing: " +expectedItem);
 		}
 	}
+	
+	@Test(priority = 3)
+	// first mega menu link Desktop
+	public void firstMegaMenuIsDesktop() {
+		String firstMenu = homePage.getFirstTopMenuText();
+		Assert.assertEquals(firstMenu, "Desktop", "First Menu item is not Desktop");
+		extentTest.pass("Verified the first mega menu is Desktops.");
+		logger.info("First Menu Item Text is: " + firstMenu);
+		
+	}
+	
 
 }

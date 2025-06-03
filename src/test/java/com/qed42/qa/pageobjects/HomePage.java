@@ -28,6 +28,7 @@ public class HomePage {
 	public List<WebElement> getTopMenuItems(){
 		return driver.findElements(topMenuItems);
 	}
+	//return first top menu
 	public String getFirstTopMenuText() {
 		return getTopMenuItems().get(0).getText().trim();
 	}
