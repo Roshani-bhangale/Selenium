@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.util.List;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 	public WebDriver driver;
@@ -12,6 +13,7 @@ public class HomePage {
 	//constructor
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 	//Logo displayed
 	public boolean isLogoDisplayed() {
@@ -22,14 +24,4 @@ public class HomePage {
 		return driver.getTitle();
 	}
 
-	//Mega menu 
-	public By topMenuItems = By.cssSelector("ul.nav.navbar-nav > li > a");
-	
-	public List<WebElement> getTopMenuItems(){
-		return driver.findElements(topMenuItems);
-	}
-	//return first top menu
-	public String getFirstTopMenuText() {
-		return getTopMenuItems().get(0).getText().trim();
-	}
 }

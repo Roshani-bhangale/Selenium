@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.11.0</version>
+			<version>4.18.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -64,6 +64,11 @@
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-devtools-v123</artifactId>
+			<version>4.19.1</version> <!-- match your Selenium version -->
 		</dependency>
 
 	</dependencies>

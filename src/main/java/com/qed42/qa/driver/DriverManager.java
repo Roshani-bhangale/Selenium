@@ -63,7 +63,9 @@ public class DriverManager {
 	 * @param browserName
 	 * @return
 	 */
+	@SuppressWarnings("deprecation")
 	public static WebDriver getDriver(String browserName) {
+		System.out.println("Initializing WebDriver for thread: " + Thread.currentThread().getId() + " - Browser: " + browserName);
 		WebDriver driver = null;
 
 		switch (browserName) {
@@ -80,7 +82,7 @@ public class DriverManager {
 			driver = new FirefoxDriver(new FirefoxOptions().addArguments("-headless"));
 			break;
 		case "edge":
-			if (Configuration.PLATFORM_NAME.toLowerCase().contains("mac")) {
+			if (Configuration.PLATFORM_NAME.toLowerCase().contains("windows")) {
 				throw new WebDriverException("Your operating system does not support the requested browser");
 			} else {
 				driver = new EdgeDriver();
