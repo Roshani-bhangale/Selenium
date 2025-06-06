@@ -3,12 +3,17 @@ package com.qed42.qa.tests;
 import com.qed42.qa.tests.BaseTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import java.lang.System.Logger;
 import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Arrays;
 import org.testng.Assert;
+
+import com.aventstack.extentreports.Status;
 import com.qed42.qa.pageobjects.HomePage;
 import com.qed42.qa.pageobjects.MenuComponent;
+import com.qed42.qa.reportmanager.Report;
 
 public class HomeMenuTests extends BaseTest {
 	
@@ -41,15 +46,15 @@ public class HomeMenuTests extends BaseTest {
 		}
 	}
 	
-	@Test(priority = 3)
+	 @Test(priority = 3)
 	// first mega menu link Desktop
 	public void firstMegaMenuIsDesktop() {
-		String firstMenu = homePage.getFirstTopMenuText();
-		Assert.assertEquals(firstMenu, "Desktop", "First Menu item is not Desktop");
-		extentTest.pass("Verified the first mega menu is Desktops.");
-		logger.info("First Menu Item Text is: " + firstMenu);
-		
-	}
+		 MenuComponent menu = new MenuComponent(driver);
+		String firstMenu = menu.getFirstTopMenuText();
+		Assert.assertEquals(firstMenu, "Desktops", "First Menu item is not Desktops");
+		Report.log(Status.PASS, "Verified the first mega menu is Desktops.");
+//		ExtentReport.pass("Verified the first mega menu is Desktops.");
+//		Logger.info("First Menu Item Text is: " + firstMenu);
 	
-
+	 }
 }

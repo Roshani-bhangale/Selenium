@@ -1,7 +1,7 @@
 package com.qed42.qa.tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,9 +20,11 @@ public class BaseTest {
 	@BeforeMethod
 	public void setUp() {
         
-        driver = new ChromeDriver();
+        DriverManager.initialize("firefox");  // Ensure browser is passed correctly
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("https://tutorialsninja.com/demo/");
+        System.out.println("Browser initialized: ");
 	}
 	
 	/**
@@ -32,14 +34,13 @@ public class BaseTest {
 	@AfterMethod
 	public void quit() {
 		DriverManager.quit();
-	
 	}
-	
 	/**
 	 * terminate() method is called after every class. It removes the ThreadLocal driver.
 	 */
 	@AfterClass
 	public void tearDown() {
 		DriverManager.terminate();
+		System.out.println("Browser closed.");
 	}
 }
