@@ -17,7 +17,7 @@ public class HomePage {
 	
 	public By logo = By.cssSelector("#logo");
 
-	private WebDriverWait wait;
+	protected WebDriverWait wait;
 	//constructor
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
